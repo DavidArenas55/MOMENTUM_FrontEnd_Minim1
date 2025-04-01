@@ -1,9 +1,16 @@
 <mat-toolbar color="primary" id="navbar">
+  <!-- Icono para usuarios -->
   <button mat-icon-button (click)="router.navigate(['/dashboard/users'])">
     <mat-icon>person</mat-icon>
   </button>
+  <!-- Icono para citas -->
   <button mat-icon-button (click)="router.navigate(['dashboard/appointments'])">
     <mat-icon>event</mat-icon>
+  </button>
+
+  <!-- Icono para clasificador -->
+  <button mat-icon-button (click)="router.navigate(['/dashboard/clasificador'])">
+    <mat-icon>analytics</mat-icon> <!-- Puedes cambiar el icono aquí -->
   </button>
 
   <span class="spacer"></span>

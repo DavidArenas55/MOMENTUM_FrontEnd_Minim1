@@ -1,0 +1,40 @@
+<div class="calendar-clasificador">
+    <h2>Clasificador de Calendarios</h2>
+  
+    <!-- Filtro de Calendarios -->
+    <mat-form-field>
+      <mat-label>Filtrar Calendarios</mat-label>
+      <input matInput [formControl]="calendarForm.get('filter')" placeholder="Buscar por nombre">
+    </mat-form-field>
+  
+    <!-- Botón para clasificar los calendarios -->
+    <button mat-raised-button color="primary" (click)="classifyCalendars()">Clasificar Calendarios</button>
+  
+    <!-- Tabla de Calendarios Filtrados -->
+    <table mat-table [dataSource]="filteredCalendars" class="mat-elevation-z8">
+      <ng-container matColumnDef="calendarName">
+        <th mat-header-cell *matHeaderCellDef> Nombre del Calendario </th>
+        <td mat-cell *matCellDef="let calendar">{{ calendar.calendarName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="appointments">
+        <th mat-header-cell *matHeaderCellDef> Número de Citas </th>
+        <td mat-cell *matCellDef="let calendar">{{ calendar.appointments.length }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['calendarName', 'appointments']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['calendarName', 'appointments']"></tr>
+    </table>
+  
+    <!-- Mostrar la clasificación si está disponible -->
+    <div *ngIf="classification">
+      <h3>Última Clasificación</h3>
+      <div *ngFor="let category of classification.classifiedCalendars | keyvalue">
+        <h4>{{ category.key }}</h4>
+        <ul>
+          <li *ngFor="let calendar of category.value">{{ calendar }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

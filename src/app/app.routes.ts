@@ -6,6 +6,8 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardUsersComponent } from './pages/dashboard-users/dashboard-users.component';
 import { DashboardAppointmentsComponent } from './pages/dashboard-appointments/dashboard-appointments.component';
+import { ClasificadorComponent } from './pages/clasificador/clasificador.component'; // Importa el componente
+
 
 export const routes: Routes = [
   {
@@ -21,7 +23,8 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: 'users', component: DashboardUsersComponent },
-      { path: 'appointments', component: DashboardAppointmentsComponent }
+      { path: 'appointments', component: DashboardAppointmentsComponent },
+      { path: 'clasificador', component: ClasificadorComponent }  // Ruta para el clasificador
     ]
   },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
